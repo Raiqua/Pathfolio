@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pathfolio
+      POSTGRES_PASSWORD: pathfolio
+      POSTGRES_DB: pathfolio
+    ports:
+      - "5432:5432"
+    volumes:
+      - pathfolio_pgdata:/var/lib/postgresql/data
+
+volumes:
+  pathfolio_pgdata:
